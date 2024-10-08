@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> 
+                        <th>ID Plat</th> <!-- New column for Plat ID -->
+                        <th>Nom du Plat</th> <!-- Updated to French for "Dish Name" -->
+                        <th>Prix</th> <!-- Price -->
+                        <th>ID Pays</th> <!-- New column for Country ID -->
+                        <th>Nom du Pays</th> <!-- New column for Country Name -->
+                        <th>Description du Pays</th> <!-- New column for Country Description -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let plat of plats">
+                        <td>{{ plat.idPlat }}</td> <!-- Display Plat ID -->
+                        <td>{{ plat.nomPlat }}</td> <!-- Display Dish Name -->
+                        <td>{{ plat.prixPlat }}</td> <!-- Display Price -->
+                        <td>{{ plat.pays.idPays }}</td> <!-- Display Country ID -->
+                        <td>{{ plat.pays.nomPays }}</td> <!-- Display Country Name -->
+                        <td>{{ plat.pays.descriptionPays }}</td> <!-- Display Country Description -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des Produits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- Add Bootstrap CSS -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Gestion Plat</a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="plats">Home</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Produits
+                </a>
+                <div class="dropdown-menu">
+                    <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="add-plat">Ajouter</a>
+                    <a class="dropdown-item" href="#">Lister</a>
+                    <a class="dropdown-item" routerLink="/rechercheParCategorie">Recherche Par Catégorie</a>
+                    <a class="dropdown-item" routerLink="/rechercheParNom">Recherche Par Nom</a>
+                    <a class="dropdown-item" routerLink="/listeCategories">Gestion des catégories</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li> <a class="nav-link">{{authService.loggedUser}}</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Connexion
+                </a>
+                <div class="dropdown-menu">
+                    <ng-container *ngIf="authService.isloggedIn; else login">
+                        <a class="dropdown-item" (click)="onLogout()">logout</a>
+                    </ng-container>
+                    <ng-template #login>
+                        <a class="dropdown-item" routerLink="login">login</a>
+                    </ng-template>
+                    <a class="dropdown-item" href="#">Profile</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- Full jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
+</body>
+
+</html>
